@@ -4,16 +4,21 @@ export default {
     props: {
         row: Object,
         index: Number,
-        render: Function,
+        component: Object,
         column: {
             type: Object,
             default: null
         }
     },
     render: (h, ctx) => {
-        console.log(ctx);
-        const ComponentName = 'BsInput'; //ctx.props.column.component.name;
-        const Component = h(ComponentName);
+        const component = ctx.props.component;
+        const Component = h(component.name, {
+            props: Object.assign({
+                _row: ctx.props.row,
+                _column: ctx.props.column,
+                _index: ctx.props.index
+            }, component.props)
+        });
 
         return Component;
     }/*,

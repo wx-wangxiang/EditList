@@ -3,7 +3,10 @@
         <thead>
             <tr>
                 <th v-for="(index, column) in columns">
-                    {{column.title}}
+                    <template v-if="column.type === 'selection'">
+                        <Checkbox :value="isSelectAll" @on-change="selectAll"></Checkbox>
+                    </template>
+                    <span v-else>{{column.title}}</span>
                 </th>
             </tr>
         </thead>

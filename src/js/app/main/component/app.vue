@@ -7,7 +7,7 @@
 <script>
 import Vue from 'vue';
 
-import listEditor from 'component/list-editor';
+import listEditor from 'component/edit-list';
 import bsInput from 'component/input';
 
 Vue.component('BsInput', bsInput);
@@ -18,123 +18,34 @@ export default {
         return {
             columns: [
                 {
+                    type: 'selection',
+                    width: 60,
+                    align: 'center'
+                },
+                {
                     title: '姓名',
                     key: 'name',
                     component: {
                         name: 'BsInput'
-                    },
-                    render: (h, params) => {
-                        return h('input', {
-                            class: {
-                                'form-control': true,
-                                'input-sm': true
-                            },
-                            attrs: {
-                                value: params.row.name
-                            },
-                            on: {
-                                input: (event) => {
-                                    this.data[params.row._index].name = event.target.value;
-                                }
-                            }
-                        });
                     }
                 }, {
                     title: '年龄',
                     key: 'age',
                     component: {
-                        name: 'BsInput'
-                    },
-                    render: (h, params) => {
-                        return h('select', {
-                            class: {
-                                'form-control': true,
-                                'input-sm': true
-                            },
-                            attrs: {
-                                value: params.row.age
-                            },
-                            on: {
-                                change: (event) => {
-                                    this.data[params.row._index].age = event.target.value;
-                                }
-                            }
-                        }, this.ages.map(function(item) {
-                            if (parseInt(item.age) === parseInt(params.row.age)) {
-                                return h('option', {
-                                    attrs: {
-                                        selected: 'selected'
-                                    }
-                                }, item.age);
-                            }
-                            return h('option', item.age);
-                        }));
+                        name: 'BsInput',
+                        props: {}
                     }
                 }, {
                     title: '地址',
                     key: 'address',
                     component: {
                         name: 'BsInput'
-                    },
-                    render: (h, params) => {
-                        return h('input', {
-                            class: {
-                                'form-control': true,
-                                'input-sm': true
-                            },
-                            attrs: {
-                                value: params.row.address
-                            },
-                            on: {
-                                input: (event) => {
-                                    this.data[params.row._index].address = event.target.value;
-                                }
-                            }
-                        });
                     }
                 }, {
                     title: '操作',
                     key: 'action',
                     width: 150,
-                    align: 'center',
-                    component: {
-                        name: 'BsInput'
-                    },
-                    render: (h, params) => {
-                        return h('div', [
-                            h('Button', {
-                                props: {
-                                    type: 'primary',
-                                    size: 'small'
-                                },
-                                class: {
-                                    'btn btn-primary btn-xs': true
-                                },
-                                style: {
-                                    marginRight: '5px'
-                                },
-                                on: {
-                                    click: () => {
-                                        this.add(params);
-                                    }
-                                }
-                            }, '添加'),
-                            h('Button', {
-                                props: {
-                                    type: 'error',
-                                    size: 'small'
-                                },
-                                class: {
-                                    'btn btn-danger btn-xs': true
-                                },
-                                on: {
-                                    click: () => {
-                                        this.remove(params.index);
-                                    }
-                                }
-                            }, '删除')
-                        ]);
-                    }
+                    align: 'center'
                 }
             ],
             data: [
