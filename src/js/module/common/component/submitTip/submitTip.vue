@@ -16,7 +16,7 @@
             //form参数：表示该组件是放在form中还是一般的submitTip
             submitForm: {
                 type: Boolean,
-                default: false
+                default: true
             },
             submitInfo: {
                 type: String,
