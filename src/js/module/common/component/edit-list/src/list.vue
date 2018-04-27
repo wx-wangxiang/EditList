@@ -46,7 +46,7 @@
             };
         },
         computed: {
-            isSelectAll () {
+            isSelectAll() {
                 let isSelectAll = true;
 
                 if (!this.data.length) isSelectAll = false;

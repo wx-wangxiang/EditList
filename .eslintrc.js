@@ -73,7 +73,7 @@ module.exports = {
             'no-fallthrough': 2,//禁止 case 语句落空
             'no-with': 2,//禁用 with 语句,
             'default-case': 2,//要求 switch 语句中有 default 分支
-            'consistent-return': 2, //要求 return 语句要么总是指定返回的值，要么不指定
+            'consistent-return': 0, //要求 return 语句要么总是指定返回的值，要么不指定
             'dot-notation': 2, //要求使用点号
             'no-else-return': 2,//禁止 if 语句中 return 语句之后有 else 块
             'no-extend-native': 2,//不要扩展原生对象
@@ -113,7 +113,7 @@ module.exports = {
             'block-spacing': [2, 'never'], //禁止在单行代码块中使用空格
             'comma-spacing': [2, {"before": false, "after": true}],//逗号后面有空格，前面无空格
             'space-in-parens': 2,//禁止圆括号内的空格
-            'max-params': [2, 4],//限制函数定义中最大参数个数
+            'max-params': [2, 8],//限制函数定义中最大参数个数
             'max-statements': [2, 50],//限制函数块中的语句的最大数量
             'quote-props': [2, 'consistent-as-needed'], //如果有属性名称要求使用引号，则所有的属性名称都要使用引号；否则，禁止所有的属性名称使用引号
             'dot-location': [2, 'property'],//强制在点号之前或之后换行 表达式中的点号操作符应该和属性在同一行
@@ -150,7 +150,7 @@ module.exports = {
             'no-duplicate-imports': 2,//同一模块有多个导入时一次性写完
             'handle-callback-err': 0,//要求回调函数中有容错处理
             'comma-style': [2, 'last'], //强制使用一致的逗号风格
-            'complexity': [2, 8], //指定程序中允许的最大环路复杂度
+            'complexity': [0, 8], //指定程序中允许的最大环路复杂度
             'computed-property-spacing': [2, 'never'],//禁止在计算的属性的方括号中使用空格
             'constructor-super': 0, //要求在构造函数中有 super() 的调用
             'no-new-require': 2,//禁止调用 require 时使用 new 操作符
