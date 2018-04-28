@@ -47,6 +47,11 @@
                 type: Boolean,
                 default: true
             },
+            // 表格是否自适应
+            fit: {
+                type: Boolean,
+                default: true
+            },
             spanMethod: Function
         },
         methods: {

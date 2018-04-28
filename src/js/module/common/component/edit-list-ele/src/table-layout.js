@@ -109,7 +109,6 @@ class TableLayout {
         const flattenColumns = [];
         const columns = this.table.columns;
 
-        console.log(this.table);
         columns.forEach((column) => {
             if (column.isColumnGroup) {
                 flattenColumns.push.apply(flattenColumns, column.columns);
@@ -126,7 +125,6 @@ class TableLayout {
         const bodyWidth = this.table.$el.clientWidth;
         let bodyMinWidth = 0;
 
-        console.log(bodyWidth);
         const flattenColumns = this.getFlattenColumns();
         const flexColumns = flattenColumns.filter((column) => typeof column.width !== 'number');
 
@@ -134,6 +132,7 @@ class TableLayout {
             if (typeof column.width === 'number' && column.realWidth) column.realWidth = null;
         });
 
+        // 这里是对单元格宽度的处理逻辑，当有某个单元格的宽度没写的时候会进入第一个处理程序,使单元格宽度自适应
         if (flexColumns.length > 0 && fit) {
             flattenColumns.forEach((column) => {
                 bodyMinWidth += column.width || column.minWidth || 80;
@@ -171,7 +170,6 @@ class TableLayout {
             }
 
             this.bodyWidth = Math.max(bodyMinWidth, bodyWidth);
-            console.log(this.bodyWidth);
         } else {
             flattenColumns.forEach((column) => {
                 if (!column.width && !column.minWidth) {
@@ -185,7 +183,6 @@ class TableLayout {
             this.scrollX = bodyMinWidth > bodyWidth;
 
             this.bodyWidth = bodyMinWidth;
-            console.log(this.bodyWidth);
         }
 
         const fixedColumns = this.store.states.fixedColumns;

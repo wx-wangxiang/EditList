@@ -18,15 +18,13 @@
             </edit-list-column>
             <edit-list-column
                 prop="address"
-                label="地址"
-                width="460">
+                label="地址">
                 <template scope="scope">
                     <span class="text-primary">{{scope.row.address}}</span>
                 </template>
             </edit-list-column>
             <edit-list-column
-                label="操作"
-                width="180">
+                label="操作">
                 <template scope="scope">
                     <button class="btn btn-default btn-primary btn-xs" type="button">
                         <i class="glyphicon glyphicon-edit"></i> 编辑
