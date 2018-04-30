@@ -31,6 +31,8 @@ const defaults = {
 const forced = {
     selection: {
         renderHeader: function(h, { store }) {
+            // 这是 vue JSX 的写法
+            // render 函数中没有与 v-model 相应的 api - 必须自己来实现相应的逻辑：
             return <el-checkbox
                 disabled={ store.states.data && store.states.data.length === 0 }
                 indeterminate={ store.states.selection.length > 0 && !this.isAllSelected }

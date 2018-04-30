@@ -1,6 +1,6 @@
 <template>
     <div class="panel panel-default" :style="{
-                width: layout.bodyWidth ? layout.bodyWidth + 'px' : ''
+                width: bodyWidth
             }">
         <!-- 使用插槽，初始化 table-column 组件,将列组件中的参数传入store -->
         <div class="hidden-columns" ref="hiddenColumns"><slot></slot></div>
@@ -8,7 +8,7 @@
             ref="tabelHeader" 
             :store="store"
             :style="{
-                width: layout.bodyWidth ? layout.bodyWidth + 'px' : ''
+                width: bodyWidth
             }"></table-header>
         <table-body 
             :store="store"
